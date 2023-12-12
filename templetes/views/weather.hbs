@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{>headerlinks}}
+  </head>
+  <body>
+    {{>navbar}}
+    <!-- --main header-- -->
+    <div class="cantainter-fluid main_header">
+        <div class="row">
+    <div class="col-md-10 col-12 mx-auto">
+        <div class="main_content">
+            <form class="temp_form">
+                <input type="text" id="cityName" placeholder="Enter your city name" autocomplete="off">
+                <input type="submit" value="search" id="submitBtn">
+
+            </form>
+        </div>
+
+        <div class="tempInformation">
+            <div class="top_layer">
+                <p id="day">Friday</p>
+                <p id="today_date">09 DEC</p>
+            </div>
+            <div class="main_layer">
+                <p id="city_name">Get Out Put Here</p>
+                <div class="middle_layer data_hide">
+                    <p id="temp"><span id = "temp_real_val">O</span>&deg;C</p>
+                    <p id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></p>
+                </div>
+
+            </div>
+        </div>
+</div>
+
+    </div>
+    </div>
+
+    {{>footer}}
+
+    <script src="js/script.js"></script>
+
+    <script>
+
+      
+        const today_date = document.getElementById("today_date");
+        const day = document.getElementById('day')
+
+        const getCurrentDay = () => {
+        
+        let weekday = new Array(7);
+        weekday[0] = "Sunday";
+        weekday[1] = "Monday";
+        weekday[2] = "Tuesday";
+        weekday[3] = "Wedensday";
+        weekday[4] = "Thursday";
+        weekday[5] = "Friday";
+        weekday[6] = "Saturday";
+
+        let CurrentTime = new Date();
+        let days = weekday[CurrentTime.getDay()];
+        let day = document.getElementById('day');
+        day.innerText = days;
+      };
+
+
+      const getCurrentTime = () => {
+        let months = [
+          "jan",
+          "feb",
+          "Mar",
+          "Apr",
+          "May",
+          "June",
+          "July",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
+
+        let now = new Date();
+        let month = months[CurrentTime.getMonth()];
+        let today_date = document.getElementById('today_date');
+        Date.innerText = month;
+      }
+
+      getCurrentDay();
+      getCurrentTime();
+
+      {{!-- curDate.innerHTML = getCurrentDay() + " | " + getCurrentTime(); --}}
+
+
+    </script>
+
+  </body>
+</html>
+
